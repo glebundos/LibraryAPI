@@ -23,12 +23,18 @@ namespace Application.Handlers.CommandHandlers
             var bookEntity = BookMapper.Mapper.Map<Book>(request);
             if (bookEntity == null)
             {
-                throw new BookException(message: "Book was null");
+                throw new BookException("Book was null");
+            }
+
+            var existingBook = await _bookRepo.GetByISBNAsync(request.ISBN);
+            if (existingBook != null)
+            {
+                throw new BookException("A book with this ISBN already exists.");
             }
 
             if (bookEntity.BorrowTime >= bookEntity.ReturnTime)
             {
-                throw new BookException(message: "Borrow time cannot be greater or equal return time");
+                throw new BookException("Borrow time cannot be greater or equal return time");
             }
 
             return await _bookRepo.AddAsync(bookEntity);
