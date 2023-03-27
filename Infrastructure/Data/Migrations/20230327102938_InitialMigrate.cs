@@ -11,7 +11,7 @@ namespace Infrastructure.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            /*migrationBuilder.CreateTable(
                 name: "Books",
                 columns: table => new
                 {
@@ -33,13 +33,13 @@ namespace Infrastructure.Data.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Username);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
@@ -47,17 +47,17 @@ namespace Infrastructure.Data.Migrations
                 table: "Books",
                 column: "ISBN",
                 unique: true,
-                filter: "[ISBN] IS NOT NULL");
+                filter: "[ISBN] IS NOT NULL");*/
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
+            /*migrationBuilder.DropTable(
                 name: "Books");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Users");*/
         }
     }
 }
