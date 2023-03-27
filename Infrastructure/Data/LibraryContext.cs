@@ -23,9 +23,6 @@ namespace Infrastructure.Data
             builder.Entity<Book>()
                 .HasIndex(b => b.ISBN)
                 .IsUnique();
-
-            builder.Entity<User>()
-                .HasKey(u => u.Username);
         }
 
         public virtual void SetModified(object entity)

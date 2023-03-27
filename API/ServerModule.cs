@@ -1,5 +1,6 @@
 ﻿using Application.Commands;
 using Application.Handlers.CommandHandlers;
+using Application.Helpers;
 using Core.Repositories;
 using Core.Repositories.Base;
 using Infrastructure.Data;
@@ -41,6 +42,11 @@ namespace API
 
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ITokenService, TokenService>();
+
+            AppSettings appSettings = new AppSettings();
+            builder.Configuration.GetSection("AppSettings").Bind(appSettings);
+            services.AddSingleton<AppSettings>(appSettings);
         }
     }
 }

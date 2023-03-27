@@ -55,7 +55,7 @@ namespace Infrastructure.Data.Migrations
                         .IsUnique()
                         .HasFilter("[ISBN] IS NOT NULL");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.User", b =>
@@ -71,7 +71,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Username");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 #pragma warning restore 612, 618
         }

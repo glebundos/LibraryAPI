@@ -1,4 +1,5 @@
 using API;
+using Application.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ app.UseCors(builder => builder
     .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader());
+
+app.UseMiddleware<JwtMiddleware>();
 
 app.UseHttpsRedirection();
 
