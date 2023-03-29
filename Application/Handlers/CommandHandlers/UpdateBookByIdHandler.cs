@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace Application.Handlers.CommandHandlers
 {
-    public class UpdateBookHandler : IRequestHandler<UpdateBookCommand, Book>
+    public class UpdateBookByIdHandler : IRequestHandler<UpdateBookByIdCommand, Book>
     {
         private readonly IBookRepository _bookRepo;
 
-        public UpdateBookHandler(IBookRepository bookRepo) => _bookRepo = bookRepo;
+        public UpdateBookByIdHandler(IBookRepository bookRepo) => _bookRepo = bookRepo;
 
-        public async Task<Book> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
+        public async Task<Book> Handle(UpdateBookByIdCommand request, CancellationToken cancellationToken)
         {
             var oldBook = await _bookRepo.GetByIdAsync(request.Id);
 

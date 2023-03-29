@@ -51,7 +51,7 @@ namespace API.Controllers
 
         [Authorize]
         [HttpPut]
-        public async Task<ActionResult<Book>> Update([FromBody] UpdateBookCommand command)
+        public async Task<ActionResult<Book>> Update([FromBody] UpdateBookByIdCommand command)
         {
             return await CommandAsync(command);
         }

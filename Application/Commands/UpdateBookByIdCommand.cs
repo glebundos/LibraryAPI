@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Commands
 {
-    public class UpdateBookCommand : IRequest<Book>
+    public class UpdateBookByIdCommand : IRequest<Book>
     {
         public Guid Id { get; set; }
 
